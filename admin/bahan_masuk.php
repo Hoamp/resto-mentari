@@ -1,28 +1,11 @@
 <?php
 require_once '../config/db.php';
 
-$q = "SELECT * FROM bahan_masuk INNER JOIN bahan ON bahan_masuk.id_bahan = bahan.id_bahan";
-$dataBahanMasuk = mysqli_query($conn, $q);
-
 $no = 1;
 
 if (isset($_POST['tampil'])) {
     $dari = mysqli_real_escape_string($conn, $_POST['dari']);
     $sampai = mysqli_real_escape_string($conn, $_POST['sampai']);
-
-    /*
-    $dari_array = explode('-', $dari);
-    $dari_dd = $dari_array[2];
-    $dari_mm = $dari_array[1];
-    $dari_yy = $dari_array[0];
-    $dari = "$dari_dd-$dari_mm-$dari_yy";
-
-    $sampai_array = explode('-', $sampai);
-    $sampai_dd = $sampai_array[2];
-    $sampai_mm = $sampai_array[1];
-    $sampai_yy = $sampai_array[0];
-    $sampai = "$sampai_dd-$sampai_mm-$sampai_yy";
-    */
 
     $dataBahanMasuk = mysqli_query($conn, "SELECT * FROM bahan_masuk INNER JOIN bahan ON bahan.id_bahan = bahan_masuk.id_bahan WHERE tanggal_masuk >= '$dari' AND tanggal_masuk <= '$sampai'");
 } else {
@@ -64,9 +47,6 @@ if (isset($_POST['tampil'])) {
                         </tr>
                     <?php $no++;
                     endforeach ?>
-
-
-
                 </tbody>
             </table>
             <div class="container py-4">
@@ -88,7 +68,6 @@ if (isset($_POST['tampil'])) {
                     <form action="excel-bahan-masuk.php" method="post">
                         <input type="hidden" name="dari" value="<?= $dari; ?>">
                         <input type="hidden" name="sampai" value="<?= $sampai; ?>">
-
                         <div class="col-lg-3 mt-3">
                             <button class="btn btn-success " type="submit">
                                 Export Excel
