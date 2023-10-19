@@ -34,7 +34,12 @@ $no = 1;
                             <td><?= $bahan['nama']; ?></td>
                             <td><?= $bahan['stok']; ?></td>
                             <td><?= $bahan['satuan']; ?></td>
-                            <td><?= $bahan['status']; ?></td>
+                            <?php if ($bahan['stok'] > 10) { ?>
+                                <td>banyak</td>
+                            <?php } else { ?>
+                                <td>sedikit</td>
+
+                            <?php } ?>
                             <?php if ($bahan['foto'] == '') { ?>
                                 <td>Tidak ada foto bahan</td>
                             <?php } else { ?>

@@ -12,7 +12,7 @@ $dataBahan = mysqli_query($conn, $q);
         <div class="col-md-8">
             <div class="card mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0">Tambah bahan masuk</h5>
+                    <h5 class="mb-0">Tambah bahan keluar</h5>
                 </div>
                 <div class="card-body">
                     <form method="post" action="proses.php">
@@ -27,9 +27,9 @@ $dataBahan = mysqli_query($conn, $q);
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Jumlah Masuk</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Jumlah keluar</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="jumlah masuk" name="jumlah">
+                                <input type="text" class="form-control" placeholder="jumlah keluar" name="jumlah">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -40,7 +40,7 @@ $dataBahan = mysqli_query($conn, $q);
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary" name="tambah-bahan-masuk">Send</button>
+                                <button type="submit" class="btn btn-primary" name="tambah-bahan-keluar">Send</button>
                             </div>
                         </div>
                     </form>

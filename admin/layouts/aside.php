@@ -111,6 +111,12 @@
                 <div data-i18n="Basic">Bahan Masuk</div>
             </a>
         </li>
+        <li class="menu-item">
+            <a href="bahan_keluar.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Bahan Keluar</div>
+            </a>
+        </li>
 
     </ul>
 </aside>

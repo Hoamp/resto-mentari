@@ -1,5 +1,6 @@
 <?php
 require_once '../config/db.php';
+date_default_timezone_set('Asia/Jakarta');
 
 // Create
 if (isset($_POST['tambah-menu'])) {
@@ -106,19 +107,12 @@ if (isset($_POST['tambah-data-bahan'])) {
     $nama = $_POST['nama'];
     $stok = $_POST['stok'];
     $satuan = $_POST['satuan'];
-    if ($stok < 5) {
-        $status = "sedikit";
-    } else if ($stok < 15) {
-        $status = "cukup";
-    } else {
-        $status = "banyak";
-    }
     $foto = $_FILES['foto']['tmp_name'];
     if ($foto == '') {
         $q = "INSERT INTO `bahan` 
-        (`id_bahan`, `nama`, `stok`, `satuan`, `status`, `foto`) 
+        (`id_bahan`, `nama`, `stok`, `satuan`,  `foto`) 
         VALUES 
-        (NULL, '$nama', '$stok', '$satuan', '$status', NULL);";
+        (NULL, '$nama', '$stok', '$satuan',  NULL);";
 
         mysqli_query($conn, $q);
 
@@ -137,9 +131,9 @@ if (isset($_POST['tambah-data-bahan'])) {
         move_uploaded_file($namaLama, $folderUpload . $namaFile);
 
         $q = "INSERT INTO `bahan` 
-        (`id_bahan`, `nama`, `stok`, `satuan`, `status`, `foto`) 
+        (`id_bahan`, `nama`, `stok`, `satuan`, `foto`) 
         VALUES 
-        (NULL, '$nama', '$stok', '$satuan', '$status', '$namaFile');";
+        (NULL, '$nama', '$stok', '$satuan', '$namaFile');";
 
         mysqli_query($conn, $q);
 
@@ -147,4 +141,58 @@ if (isset($_POST['tambah-data-bahan'])) {
         echo "<script>alert('berhasil tambah bahan')</script>";
         echo "<script>document.location.href = 'bahan_persediaan.php'</script>";
     }
+}
+
+if (isset($_POST['tambah-bahan-masuk'])) {
+    $id_bahan = $_POST['id_bahan'];
+    $jumlah = $_POST['jumlah'];
+    $keterangan = $_POST['keterangan'];
+
+    $q = "INSERT INTO `bahan_masuk` 
+    (`id_bahan_masuk`, `id_bahan`, `jumlah_masuk`, `keterangan`) 
+    VALUES 
+    (NULL, '$id_bahan', '$jumlah', '$keterangan');";
+    $do_q = mysqli_query($conn, $q);
+
+    // arahkan ke halaman lain
+    echo "<script>alert('Berhasil tambah bahan masuk');</script>";
+    echo "<script>window.location.href = 'bahan_masuk.php';</script>";
+}
+
+if (isset($_POST['tambah-bahan-keluar'])) {
+    $id_bahan = $_POST['id_bahan'];
+    $jumlah = $_POST['jumlah'];
+    $keterangan = $_POST['keterangan'];
+
+    $q = "INSERT INTO `bahan_keluar` 
+    (`id_bahan_keluar`, `id_bahan`, `jumlah_keluar`, `keterangan`) 
+    VALUES 
+    (NULL, '$id_bahan', '$jumlah', '$keterangan');";
+    $do_q = mysqli_query($conn, $q);
+
+    // arahkan ke halaman lain
+    echo "<script>alert('Berhasil tambah bahan keluar');</script>";
+    echo "<script>window.location.href = 'bahan_keluar.php';</script>";
+}
+
+if (isset($_GET['hapus_keluar'])) {
+    $id_bahan = $_GET['hapus_keluar'];
+
+    $q = "DELETE FROM bahan_keluar WHERE id_bahan_keluar = '$id_bahan'";
+    $do_q = mysqli_query($conn, $q);
+
+    // arahkan ke halaman lain
+    echo "<script>alert('Berhasil delete bahan keluar');</script>";
+    echo "<script>window.location.href = 'bahan_keluar.php';</script>";
+}
+
+if (isset($_GET['hapus_masuk'])) {
+    $id_bahan = $_GET['hapus_masuk'];
+
+    $q = "DELETE FROM bahan_masuk WHERE id_bahan_masuk = '$id_bahan'";
+    $do_q = mysqli_query($conn, $q);
+
+    // arahkan ke halaman lain
+    echo "<script>alert('Berhasil delete bahan masuk');</script>";
+    echo "<script>window.location.href = 'bahan_masuk.php';</script>";
 }
