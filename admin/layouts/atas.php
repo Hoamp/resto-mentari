@@ -1,9 +1,11 @@
 <?php
-session_start();
+if(!isset($_SESSION['role'])){
+    session_start();
+}
 
 if (!isset($_SESSION['role'])) {
     echo "<script>document.location.href = '../index.php'</script>";
-    if ($_SESSION['role'] !== 'admin') {
+    if ($_SESSION['role'] !== 'admin' || $_SESSION['role'] !== 'admin_bahan') {
         echo "<script>document.location.href = '../index.php'</script>";
     }
 }

@@ -23,7 +23,9 @@ if (isset($_POST['tampil'])) {
     <div class="card">
         <h5 class="card-header ">Data bahan keluar</h5>
         <div class="table-responsive text-nowrap ">
+            <?php if($_SESSION['role'] !== 'manager'): ?>
             <a class="card-title btn btn-primary ms-3 text-white" href="tambah-bahan-keluar.php">Tambah bahan keluar</a>
+            <?php endif; ?>
             <table class="table table-hover ">
                 <thead>
                     <tr>
@@ -32,7 +34,9 @@ if (isset($_POST['tampil'])) {
                         <th>Stok keluar</th>
                         <th>Tanggal keluar</th>
                         <th>Keterangan</th>
-                        <th>Aksi</th>
+                        <?php if($_SESSION['role'] !== 'manager'): ?>
+                            <th>Aksi</th>
+                        <?php endif; ?>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0 ">
@@ -46,9 +50,11 @@ if (isset($_POST['tampil'])) {
                             <td><?= $bahan['keterangan']; ?></td>
 
 
+                            <?php if($_SESSION['role'] !== 'manager'): ?>
                             <td>
                                 <a href="proses.php?hapus_keluar=<?= $bahan['id_bahan_keluar']; ?>" class="btn btn-danger">Hapus</a>
                             </td>
+                            <?php endif; ?>
                         </tr>
                     <?php $no++;
                     endforeach ?>

@@ -58,6 +58,8 @@
 
 
 
+        
+        <?php if($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'manager'): ?>
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Halaman Users</span>
         </li>
@@ -67,13 +69,7 @@
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Menu</div>
             </a>
-        </li>
-        <li class="menu-item">
-            <a href="chef.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Chef</div>
-            </a>
-        </li>
+        </li>   
         <li class="menu-item">
             <a href="reservasi.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
@@ -87,18 +83,14 @@
             </a>
         </li>
 
+    
+        <?php endif; ?>
 
-        <li class="menu-item">
-            <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Documentation">Documentation</div>
-            </a>
-        </li>
 
-        <li class="menu-header small text-uppercase">
+        <?php if($_SESSION['role'] == 'admin_bahan' || $_SESSION['role'] == 'manager'): ?>
+            <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Gudang</span>
-        </li>
-
+        </li>   
         <li class="menu-item">
             <a href="bahan_persediaan.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
@@ -117,6 +109,8 @@
                 <div data-i18n="Basic">Bahan Keluar</div>
             </a>
         </li>
+        <?php endif; ?>
+
 
     </ul>
 </aside>

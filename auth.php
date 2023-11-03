@@ -26,7 +26,39 @@ if (isset($_POST['login'])) {
         echo "<script>alert('Username atau Password salah')</script>";
         echo "<script>document.location.href = 'login.php'</script>";
         die;
-    } else {
+    }else if($username == 'admin_bahan'){
+        // dan passwordnya juga admin
+        if ($password == "21232f297a57a5a743894a0e4a801fc3") {
+            // session start dengan nama user dan role
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = 'admin_bahan';
+
+            // kembalikan ke halaman admin/index dengan tambahan alert
+            echo "<script>alert('Selamat datang admin bahan')</script>";
+            echo "<script>document.location.href = 'admin/index.php'</script>";
+            die;
+        }
+        // jika password salah
+        echo "<script>alert('Username atau Password salah')</script>";
+        echo "<script>document.location.href = 'login.php'</script>";
+    }else if($username == 'manager'){
+        // dan passwordnya juga admin
+        if ($password == "1d0258c2440a8d19e716292b231e3190") {
+            // session start dengan nama user dan role
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = 'manager';
+
+            // kembalikan ke halaman admin/index dengan tambahan alert
+            echo "<script>alert('Selamat datang manager')</script>";
+            echo "<script>document.location.href = 'admin/index.php'</script>";
+            die;
+        }
+        // jika password salah
+        echo "<script>alert('Username atau Password salah')</script>";
+        echo "<script>document.location.href = 'login.php'</script>";
+    }else {
         // jika yang login bukan admin, ambil data username yang ada
         $query = "SELECT * FROM users WHERE username = '$username'";
         $dataUser = mysqli_query($conn, $query);

@@ -17,7 +17,9 @@ foreach ($dataMenu as $d) {
     <div class="card">
         <h5 class="card-header">Data semua menu</h5>
         <div class=" my-3 ms-4">
+            <?php if($_SESSION['role'] !== 'manager'): ?>
             <a href="tambah-menu.php" class="btn btn-primary">Tambah menu</a>
+            <?php endif; ?>
         </div>
         <div class="table-responsive text-nowrap ">
             <table class="table table-hover ">
@@ -28,8 +30,9 @@ foreach ($dataMenu as $d) {
                         <th>Nama</th>
                         <th>Deskripsi</th>
                         <th>Harga</th>
-                        <th>Stok</th>
+                        <?php if($_SESSION['role'] !== 'manager'): ?>
                         <th>Aksi</th>
+                        <?php endif; ?>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0 ">
@@ -45,10 +48,10 @@ foreach ($dataMenu as $d) {
                                 <td><?= $menu['nama']; ?></td>
                                 <td><?= $menu['deskripsi']; ?></td>
                                 <td><?= $menu['harga']; ?></td>
-                                <td><?= $menu['stok']; ?></td>
 
-                                <td>
-                                    <div class="dropdown">
+                                <?php if($_SESSION['role'] !== 'manager'): ?>
+                                    <td>
+                                        <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
@@ -58,6 +61,7 @@ foreach ($dataMenu as $d) {
                                         </div>
                                     </div>
                                 </td>
+                                <?php endif; ?>
                             </tr>
                         <?php $no++;
                         endforeach ?>

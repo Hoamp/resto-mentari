@@ -36,8 +36,9 @@ if (isset($_POST['change-status'])) {
                 <p><a href="../foto/bukti_tf/<?= $order['bukti_tf']; ?>" target="_blank"><img src="../foto/bukti_tf/<?= $order['bukti_tf']; ?>" width="50px" height="50px" alt=""></a></p>
             <?php }  ?>
             <p>Status : <?= $order['status']; ?></p>
-            <form action="" method="post">
-                <label for="" class="fw-bold">Ganti Status Pemesanan</label>
+            <?php if($_SESSION['role'] !== 'manager'): ?>
+                <form action="" method="post">
+                    <label for="" class="fw-bold">Ganti Status Pemesanan</label>
                 <input type="hidden" name="id_order" value="<?= $order['id_order']; ?>">
                 <div class="row">
                     <div class="col-md-4">
@@ -52,6 +53,7 @@ if (isset($_POST['change-status'])) {
                 </div>
                 <button type="submit" name="change-status" class="btn btn-primary" value="asdf">Ubah status</button>
             </form>
+            <?php endif; ?>
 
         </div>
     </div>
