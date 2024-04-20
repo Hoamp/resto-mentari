@@ -47,7 +47,6 @@ $dataBahan = mysqli_query($conn, $q);
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <!-- / Content -->

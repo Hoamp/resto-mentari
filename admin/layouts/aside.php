@@ -1,4 +1,5 @@
 <!-- Menu -->
+<?php $currentPage = basename($_SERVER['PHP_SELF']); ?>
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
@@ -49,41 +50,36 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item active">
-            <a href="index.html" class="menu-link">
+        <li class="menu-item <?= ($currentPage == 'index.php') ? 'active' : '' ?>">
+            <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
 
-
-
-        
         <?php if($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'manager'): ?>
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Halaman Users</span>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item <?= ($currentPage == 'menu.php') ? 'active' : '' ?>">
             <a href="menu.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Menu</div>
             </a>
         </li>   
-        <li class="menu-item">
+        <li class="menu-item <?= ($currentPage == 'reservasi.php') ? 'active' : '' ?>">
             <a href="reservasi.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Reservasi</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item <?= ($currentPage == 'orderan.php') ? 'active' : '' ?>">
             <a href="orderan.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Orderan</div>
             </a>
         </li>
-
-    
         <?php endif; ?>
 
 
@@ -91,19 +87,19 @@
             <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Gudang</span>
         </li>   
-        <li class="menu-item">
+        <li class="menu-item <?= ($currentPage == 'bahan_persediaan.php') ? 'active' : '' ?>">
             <a href="bahan_persediaan.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Persediaan Bahan</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item <?= ($currentPage == 'bahan_masuk.php') ? 'active' : '' ?>">
             <a href="bahan_masuk.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Bahan Masuk</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item <?= ($currentPage == 'bahan_keluar.php') ? 'active' : '' ?>">
             <a href="bahan_keluar.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Bahan Keluar</div>

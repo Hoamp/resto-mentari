@@ -3,7 +3,6 @@ require_once '../config/db.php';
 
 $q = "SELECT * FROM bahan";
 $dataBahan = mysqli_query($conn, $q);
-
 ?>
 <?php require_once './layouts/atas.php' ?>
 <!-- / Content -->

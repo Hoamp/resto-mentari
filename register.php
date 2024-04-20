@@ -26,7 +26,7 @@ if (isset($_SESSION['username'])) {
                         <div class="card-body p-5 text-center">
                             <form action="auth.php" method="post">
 
-                                <h3 class="mb-5">register form</h3>
+                                <h3 class="mb-5">Register Mentari</h3>
 
                                 <div class="form-outline mb-4">
                                     <input type="text" id="typeEmailX-2" class="form-control form-control-lg" name="name" />

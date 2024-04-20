@@ -7,7 +7,6 @@ $sampai = $_POST['sampai'];
 header('Content-Type: application/vnd.ms-excel');
 header("Content-Disposition: attachment; filename=\"Laporan bahan masuk $dari s/d $sampai.xls\"");
 header('Cache-Control: max-age=0');
-
 $data = mysqli_query($conn, "SELECT * FROM bahan_masuk INNER JOIN bahan ON bahan.id_bahan = bahan_masuk.id_bahan WHERE tanggal_masuk >= '$dari' AND tanggal_masuk <= '$sampai'");
 ?>
 <h3>Laporan Bahan Masuk <?php echo "$dari s/d $sampai" ?></h3>

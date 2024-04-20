@@ -32,17 +32,12 @@ $no = 1;
                             <td><?= $reservasi['tanggal']; ?></td>
                             <td><?= $reservasi['pesan']; ?></td>
                             <td><?= $reservasi['status']; ?></td>
-
-
                             <td>
                                 <a href="reservasi-detail.php?id=<?= $reservasi['id_reservasi']; ?>" class="btn btn-primary">Detail</a>
                             </td>
                         </tr>
                     <?php $no++;
                     endforeach ?>
-
-
-
                 </tbody>
             </table>
         </div>

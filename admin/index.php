@@ -1,15 +1,16 @@
 <?php
 require_once '../config/db.php';
 session_start();    
+$bulanIni = date('Y-m');
 if($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'manager'){
     // menu
     $menuAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM menu");
     $menu = mysqli_fetch_assoc($menuAll);
 
-    $orderanAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM orderan");
+    $orderanAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM orderan WHERE DATE_FORMAT(tanggal, '%Y-%m') = '$bulanIni'"   );
     $orderan = mysqli_fetch_assoc($orderanAll);
 
-    $reservasiAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM reservasi");
+    $reservasiAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM reservasi WHERE DATE_FORMAT(tanggal, '%Y-%m') = '$bulanIni'");
     $reservasi = mysqli_fetch_assoc($reservasiAll);
 }
 
@@ -17,13 +18,12 @@ if($_SESSION['role'] == 'admin_bahan' || $_SESSION['role'] == 'manager'){
     $bahanAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM bahan");
     $bahan = mysqli_fetch_assoc($bahanAll);
 
-    $bahan_masukAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM bahan_masuk");
+    $bahan_masukAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM bahan_masuk WHERE DATE_FORMAT(tanggal_masuk, '%Y-%m') = '$bulanIni'");
     $bahan_masuk = mysqli_fetch_assoc($bahan_masukAll);
 
-    $bahan_keluarAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM bahan_keluar");
+    $bahan_keluarAll = mysqli_query($conn, "SELECT COUNT(*) as total FROM bahan_keluar WHERE DATE_FORMAT(tanggal_keluar, '%Y-%m') = '$bulanIni'");
     $bahan_keluar = mysqli_fetch_assoc($bahan_keluarAll);
 }
-
 ?>
 <?php require_once './layouts/atas.php' ?>
 <!-- / Content -->

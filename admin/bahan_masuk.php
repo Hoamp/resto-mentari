@@ -37,7 +37,6 @@ if (isset($_POST['tampil'])) {
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0 ">
-
                     <?php foreach ($dataBahanMasuk as $bahan) : ?>
                         <tr>
                             <td><?= $no; ?></td>

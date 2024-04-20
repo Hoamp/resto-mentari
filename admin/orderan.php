@@ -32,17 +32,12 @@ $no = 1;
                             <td><?= $order['tanggal']; ?></td>
                             <td><?= $order['keterangan']; ?></td>
                             <td><?= $order['status']; ?></td>
-
-
                             <td>
                                 <a href="orderan-detail.php?id=<?= $order['id_order']; ?>" class="btn btn-primary">Detail</a>
                             </td>
                         </tr>
                     <?php $no++;
                     endforeach ?>
-
-
-
                 </tbody>
             </table>
         </div>

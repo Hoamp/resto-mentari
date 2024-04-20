@@ -43,8 +43,6 @@ require_once '../config/db.php'
                                 <input type="file" class="form-control" placeholder="Foto makanan" name="foto">
                             </div>
                         </div>
-
-
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary" name="tambah-menu">Send</button>

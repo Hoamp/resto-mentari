@@ -30,7 +30,6 @@
                 $("." + selectedClass).fadeIn();
                 $("#portfolio").fadeTo(50, 1);
             }, 500);
-
         });
     });
 </script>

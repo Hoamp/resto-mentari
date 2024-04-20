@@ -5,8 +5,6 @@ $q = "SELECT nama,no_telp,total,bukti_tf,keterangan,tanggal,status,id_order FROM
 $dataOrder = mysqli_query($conn, $q);
 $order = mysqli_fetch_assoc($dataOrder);
 
-
-
 if (isset($_POST['change-status'])) {
     $id_order = $_POST['id_order'];
     $status = $_POST['status'];

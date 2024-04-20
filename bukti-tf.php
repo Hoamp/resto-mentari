@@ -11,8 +11,6 @@ $order = mysqli_fetch_assoc($dataOrder);
 if ($order['id_user'] !== $user_id) {
     echo "<script>document.location.href = 'index.php'</script>";
 }
-
-
 ?>
 
 <!DOCTYPE html>

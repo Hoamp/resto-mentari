@@ -111,7 +111,6 @@ foreach ($dataMenu as $key => $val) {
                     int++;
                 }
             }
-
             ketBox.value = list;
 
             document.querySelector('.d-none').classList.toggle('d-none')

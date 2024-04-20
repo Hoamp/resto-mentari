@@ -5,8 +5,6 @@ $q = "SELECT * FROM `reservasi` INNER JOIN users ON reservasi.id_user = users.id
 $datareservasi = mysqli_query($conn, $q);
 $reservasi = mysqli_fetch_assoc($datareservasi);
 
-
-
 if (isset($_POST['change-status'])) {
     $id_reservasi = $_POST['id_reservasi'];
     $status = $_POST['status'];

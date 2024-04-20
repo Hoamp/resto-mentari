@@ -8,12 +8,9 @@ if (!isset($_SESSION['role'])) {
 }
 $user_id = $_SESSION['id_user'];
 
-
 $q = "SELECT * FROM reservasi WHERE id_user = '$user_id'";
 $dataReservasi = mysqli_query($conn, $q);
 $no = 1;
-
-
 ?>
 
 <!DOCTYPE html>

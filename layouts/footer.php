@@ -19,9 +19,9 @@
             </div>
             <div class="col-lg-4 col-xs-12">
                 <div class="left-text-content">
-                    <p>© Copyright Klassy Cafe Co.
+                    <p>© Copyright Mas Thomas.
 
-                        <br>Design: TemplateMo
+                        <br>Design: Hoamp
                     </p>
                 </div>
             </div>

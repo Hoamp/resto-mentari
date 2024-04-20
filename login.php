@@ -26,7 +26,7 @@ if (isset($_SESSION['username'])) {
                         <div class="card-body p-5 text-center">
                             <form action="auth.php" method="post">
 
-                                <h3 class="mb-5">login form</h3>
+                                <h3 class="mb-5">Login Mentari</h3>
 
                                 <div class="form-outline mb-4">
                                     <input type="text" id="typeEmailX-2" class="form-control form-control-lg" name="username" />
@@ -37,12 +37,6 @@ if (isset($_SESSION['username'])) {
                                     <input type="password" id="typePasswordX-2" class="form-control form-control-lg" name="password" />
                                     <label class="form-label" for="typePasswordX-2">Password</label>
                                 </div>
-
-                                <!-- Checkbox -->
-                                <!-- <div class="form-check d-flex justify-content-start mb-4">
-                                <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                                <label class="form-check-label" for="form1Example3"> Remember password </label>
-                                </div> -->
 
                                 <button class="btn btn-primary btn-lg btn-block" type="submit" name="login">Login</button>
                                 <p class="mt-3">Belum ada akun? <a href="register.php">register</a></p>

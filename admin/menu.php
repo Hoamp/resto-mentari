@@ -47,7 +47,7 @@ foreach ($dataMenu as $d) {
                                 <td><img src="../foto/<?= $menu['foto']; ?>" width="50px" height="50px" alt=""></td>
                                 <td><?= $menu['nama']; ?></td>
                                 <td><?= $menu['deskripsi']; ?></td>
-                                <td><?= $menu['harga']; ?></td>
+                                <td><?= rupiah($menu['harga']); ?></td>
 
                                 <?php if($_SESSION['role'] !== 'manager'): ?>
                                     <td>

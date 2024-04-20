@@ -38,7 +38,6 @@ require_once '../config/db.php'
                             </div>
                         </div>
 
-
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary" name="tambah-data-bahan">Send</button>

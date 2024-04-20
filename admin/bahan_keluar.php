@@ -48,8 +48,6 @@ if (isset($_POST['tampil'])) {
                             <td><?= $bahan['jumlah_keluar']; ?></td>
                             <td><?= $bahan['tanggal_keluar']; ?></td>
                             <td><?= $bahan['keterangan']; ?></td>
-
-
                             <?php if($_SESSION['role'] !== 'manager'): ?>
                             <td>
                                 <a href="proses.php?hapus_keluar=<?= $bahan['id_bahan_keluar']; ?>" class="btn btn-danger">Hapus</a>

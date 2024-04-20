@@ -13,7 +13,9 @@ $no = 1;
     <div class="card">
         <h5 class="card-header">Data persediaan bahan</h5>
         <div class="table-responsive text-nowrap ">
+        <?php if($_SESSION['role'] !== 'manager'): ?>
             <a class="card-title btn btn-primary ms-3 text-white" href="tambah-data-bahan.php">Tambah data bahan</a>
+            <?php endif; ?> 
             <table class="table table-hover ">
                 <thead>
                     <tr>
@@ -46,17 +48,12 @@ $no = 1;
                                 <td>ada foto bahan</td>
 
                             <?php } ?>
-
-
                             <td>
                                 <a href="" class="btn btn-primary">Detail</a>
                             </td>
                         </tr>
                     <?php $no++;
                     endforeach ?>
-
-
-
                 </tbody>
             </table>
         </div>

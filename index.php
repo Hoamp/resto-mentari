@@ -4,8 +4,6 @@ session_start();
 $query = "SELECT * FROM menu ORDER BY id_menu desc LIMIT 6 ";
 $dataMenu = mysqli_query($conn, $query);
 $max = 3;
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
